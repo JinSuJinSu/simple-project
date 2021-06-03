@@ -16,22 +16,22 @@ public class PhoneBook {
 		
 		boolean running = true;
 		
+		
+		
 		while(running) {
-			System.out.println();
 			System.out.println("1.리스트 2.등록 3.삭제 4.검색 5.종료");
 			for(int i=0; i<40; i++) {
 				System.out.print("-");
 			}
 			System.out.println();
-			
-			Scanner scan = new Scanner(System.in);
+					
 			
 			System.out.print(">메뉴번호: ");
 			
+			Scanner scanner = new Scanner(System.in);
 			
-			int number = scan.nextInt();
-
-			
+			int number = scanner.nextInt();
+				
 			
 			switch(number) {
 				case 1:
@@ -52,6 +52,7 @@ public class PhoneBook {
 					
 				case 5:
 					endingFormat();
+					scanner.close();
 					running = false;
 					break;
 					
@@ -142,6 +143,7 @@ public class PhoneBook {
 	private static void searchInformation() {
 		//	Scanner에서 키워드 입력 -> 부분 검색
 //		selectAll();
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		System.out.print("4.검색");
 		String keyword = scanner.nextLine();
@@ -160,6 +162,12 @@ public class PhoneBook {
 					vo.getTel());
 		}
 		
+	
+		
+		
+		
+		
+		
 		
 		
 	}
@@ -167,6 +175,7 @@ public class PhoneBook {
 	
 	private static void deleteInfomation() {
 		// scanner에서 저작 PK 입력 받아 delete한다.
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 
 		System.out.println("<3.삭제>");
@@ -181,13 +190,18 @@ public class PhoneBook {
 		boolean sucess = dao.delete(Long.valueOf(id));
 		
 		
+		System.out.println();
+		
 		selectAll();
+		
+		
 		
 	}
 	
 
 
 	private static void insertInformation() {
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		
 		System.out.println("<2.등록>");
