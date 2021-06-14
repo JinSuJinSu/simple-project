@@ -6,18 +6,18 @@ import java.sql.*;
 
 public class PhoneBookDAOImpl implements PhoneBookDAO {
 	
-	//°øÅë Á¢¼Ó ¸Ş¼Òµå
+	//ê³µí†µ ì ‘ì† ë©”ì†Œë“œ
 	private Connection getConnection() throws SQLException{
 		Connection conn = null;
 		try {
-			// µå¶óÀÌ¹ö ·Îµå
+			// ë“œë¼ì´ë²„ ë¡œë“œ
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			String dburl = "jdbc:oracle:thin:@localhost:1521:xe";
 			conn = DriverManager.getConnection(dburl,"C##bituser","bituser");
 			
 		}
 		catch(ClassNotFoundException e) {
-			System.err.println("µå¶óÀÌ¹ö ·Îµå ½ÇÆĞ!!");
+			System.err.println("ë“œë¼ì´ë²„ ë¡œë“œ ì‹¤íŒ¨!!");
 		}
 		
 		return conn;
@@ -33,7 +33,7 @@ public class PhoneBookDAOImpl implements PhoneBookDAO {
 		//select
 		ResultSet rs = null;
 		
-		//°á°ú °´Ã¼
+		//ê²°ê³¼ ê°ì²´
 		List<PhoneBookVO> list = new ArrayList<>();
 
 		
@@ -41,21 +41,21 @@ public class PhoneBookDAOImpl implements PhoneBookDAO {
 			conn = getConnection();
 			stmt = conn.createStatement();
 			
-			//Äõ¸® ÀÛ¼º
+			//ì¿¼ë¦¬ ì‘ì„±
 			String sql = "select id, name, hp, tel from phoneBooKList";
 			
-			//Äõ¸® ½ÇÇà
+			//ì¿¼ë¦¬ ì‹¤í–‰
 			rs = stmt.executeQuery(sql);
 			
 			
-			//ResultSetÀ» ÀÚ¹Ù °´Ã¼·Î º¯È¯
+			//ResultSetì„ ìë°” ê°ì²´ë¡œ ë³€í™˜
 			while(rs.next()) {
 				long id = rs.getLong(1);
 				String name = rs.getString(2);
 				String hp = rs.getString(3);
 				String tel = rs.getString(4);
 				
-				//DTO °´Ã¼
+				//DTO ê°ì²´
 				PhoneBookVO vo = new PhoneBookVO(id, name, hp, tel);
 				list.add(vo);	
 				
@@ -70,7 +70,7 @@ public class PhoneBookDAOImpl implements PhoneBookDAO {
 				conn.close();
 			}
 			catch(Exception e) {
-				System.err.println("¿¡·¯! ¿¡·¯!");
+				System.err.println("ì—ëŸ¬! ì—ëŸ¬!");
 				
 			}
 			
@@ -101,17 +101,17 @@ public class PhoneBookDAOImpl implements PhoneBookDAO {
 
 			pstmt.setString(1, "%" + keyword + "%");
 
-			//	Äõ¸® ¼öÇà
+			//	ì¿¼ë¦¬ ìˆ˜í–‰
 			rs = pstmt.executeQuery();
 
-			//	º¯È¯ 
+			//	ë³€í™˜ 
 			while(rs.next()) {
 				Long id = rs.getLong("id");
 				String name = rs.getString("name");
 				String hp = rs.getString("hp");
 				String tel = rs.getString("tel");
 
-				//	VO °´Ã¼
+				//	VO ê°ì²´
 				PhoneBookVO vo = new PhoneBookVO(id, name, hp, tel);
 				list.add(vo);
 			}
@@ -140,17 +140,17 @@ public class PhoneBookDAOImpl implements PhoneBookDAO {
 				
 				try {
 					conn = getConnection();
-					// ½ÇÇà Äõ¸®
+					// ì‹¤í–‰ ì¿¼ë¦¬
 					String sql = "insert into phoneBooKList values(SEQ_PHONE_BOOK_PK.nextval,?,?,?)";
 					pstmt = conn.prepareStatement(sql);
-					// µ¥ÀÌÅÍ ¹ÙÀÎµù
+					// ë°ì´í„° ë°”ì¸ë”©
 					pstmt.setString(1, vo.getName());
 					pstmt.setString(2, vo.getHp());
 					pstmt.setString(3, vo.getTel());
 					
 					
 					
-					//Äõ¸® ½ÇÇà
+					//ì¿¼ë¦¬ ì‹¤í–‰
 					insertedCount = pstmt.executeUpdate();
 				}
 					
@@ -187,10 +187,10 @@ public class PhoneBookDAOImpl implements PhoneBookDAO {
 		
 		try {
 			conn = getConnection();
-			// ½ÇÇà °èÈ¹
+			// ì‹¤í–‰ ê³„íš
 			String sql = "delete from phoneBooKList where id=?";
 			pstmt = conn.prepareStatement(sql);
-			// ÆÄ¶ó¹ÌÅÍ ¹ÙÀÎµù
+			// íŒŒë¼ë¯¸í„° ë°”ì¸ë”©
 			pstmt.setLong(1, id);
 			
 			

@@ -19,14 +19,14 @@ public class PhoneBook {
 		
 		
 		while(running) {
-			System.out.println("1.¸®½ºÆ® 2.µî·Ï 3.»èÁ¦ 4.°Ë»ö 5.Á¾·á");
+			System.out.println("1.ë¦¬ìŠ¤íŠ¸ 2.ë“±ë¡ 3.ì‚­ì œ 4.ê²€ìƒ‰ 5.ì¢…ë£Œ");
 			for(int i=0; i<40; i++) {
 				System.out.print("-");
 			}
 			System.out.println();
 					
 			
-			System.out.print(">¸Ş´º¹øÈ£: ");
+			System.out.print(">ë©”ë‰´ë²ˆí˜¸: ");
 			
 			Scanner scanner = new Scanner(System.in);
 			
@@ -57,7 +57,7 @@ public class PhoneBook {
 					break;
 					
 				default:
-					System.out.println("[´Ù½ÃÀÔ·ÂÇØÁÖ¼¼¿ä]");
+					System.out.println("[ë‹¤ì‹œì…ë ¥í•´ì£¼ì„¸ìš”]");
 					
 				
 			}
@@ -80,7 +80,7 @@ public class PhoneBook {
 		System.out.println();
 		
 		
-		System.out.print("*           ÀüÈ­¹øÈ£ °ü¸® ÇÁ·Î±×·¥          *");
+		System.out.print("*           ì „í™”ë²ˆí˜¸ ê´€ë¦¬ í”„ë¡œê·¸ë¨          *");
 		
 		System.out.println();
 		
@@ -103,7 +103,7 @@ public class PhoneBook {
 		System.out.println();
 		
 		
-		System.out.print("*               °¨»çÇÕ´Ï´Ù.              *");
+		System.out.print("*               ê°ì‚¬í•©ë‹ˆë‹¤.              *");
 		
 		System.out.println();
 		
@@ -131,21 +131,21 @@ public class PhoneBook {
 		//Iterator
 		Iterator<PhoneBookVO> it = list.iterator();
 		
-		System.out.println("<1.¸®½ºÆ®>");
+		System.out.println("<1.ë¦¬ìŠ¤íŠ¸>");
 		
 		while(it.hasNext()) {
-			PhoneBookVO item = it.next(); // iterator¿¡¼­ ¿ä¼Ò ÃßÃâ
+			PhoneBookVO item = it.next(); // iteratorì—ì„œ ìš”ì†Œ ì¶”ì¶œ
 			System.out.printf("%d\t%s\t%s\t%s%n",item.getId(), item.getName(), item.getHp(), item.getTel());
 		}
 	}
 	
 	
 	private static void searchInformation() {
-		//	Scanner¿¡¼­ Å°¿öµå ÀÔ·Â -> ºÎºĞ °Ë»ö
+		//	Scannerì—ì„œ í‚¤ì›Œë“œ ì…ë ¥ -> ë¶€ë¶„ ê²€ìƒ‰
 //		selectAll();
 		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
-		System.out.print("4.°Ë»ö");
+		System.out.print("4.ê²€ìƒ‰");
 		String keyword = scanner.nextLine();
 
 		PhoneBookDAO dao = new PhoneBookDAOImpl();
@@ -174,12 +174,12 @@ public class PhoneBook {
 	
 	
 	private static void deleteInfomation() {
-		// scanner¿¡¼­ ÀúÀÛ PK ÀÔ·Â ¹Ş¾Æ deleteÇÑ´Ù.
+		// scannerì—ì„œ ì €ì‘ PK ì…ë ¥ ë°›ì•„ deleteí•œë‹¤.
 		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 
-		System.out.println("<3.»èÁ¦>");
-		System.out.print(">¹øÈ£ :");
+		System.out.println("<3.ì‚­ì œ>");
+		System.out.print(">ë²ˆí˜¸ :");
 		
 		int id = scanner.nextInt();
 		
@@ -204,18 +204,18 @@ public class PhoneBook {
 		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		
-		System.out.println("<2.µî·Ï>");
+		System.out.println("<2.ë“±ë¡>");
 		
 		
-		System.out.print(">ÀÌ¸§: ");
+		System.out.print(">ì´ë¦„: ");
 		String name = scanner.nextLine();
 		
 		
 		
-		System.out.print(">ÈŞ´ëÀüÈ­: ");
+		System.out.print(">íœ´ëŒ€ì „í™”: ");
 		String hp = scanner.nextLine();;
 		
-		System.out.print(">ÁıÀüÈ­: ");
+		System.out.print(">ì§‘ì „í™”: ");
 		String tel = scanner.nextLine();
 		
 		
@@ -228,7 +228,7 @@ public class PhoneBook {
 		boolean sucess = dao.insert(vo);
 		
 		
-		System.out.println(sucess? "[µî·ÏµÇ¾ú½À´Ï´Ù]":"¿¡·¯ ¹ß»ı ¿¡·¯ ¹ß»ı");
+		System.out.println(sucess? "[ë“±ë¡ë˜ì—ˆìŠµë‹ˆë‹¤]":"ì—ëŸ¬ ë°œìƒ ì—ëŸ¬ ë°œìƒ");
 		
 		selectAll();
 

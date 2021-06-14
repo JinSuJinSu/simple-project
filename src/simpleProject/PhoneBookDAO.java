@@ -5,12 +5,12 @@ package simpleProject;
 import java.util.*;
 
 
-// ¼³°èµµ ÀÛ¼º
+// ì„¤ê³„ë„ ì‘ì„±
 public interface PhoneBookDAO {
-	public List<PhoneBookVO> getList(); //´Ü¼ø select
-	public List<PhoneBookVO> search(String keyword); // like °Ë»ö
+	public List<PhoneBookVO> getList(); //ë‹¨ìˆœ select
+	public List<PhoneBookVO> search(String keyword); // like ê²€ìƒ‰
 	public boolean insert(PhoneBookVO vo); // INSERT
-	public boolean delete(Long id); //pk·Î »èÁ¦
+	public boolean delete(Long id); //pkë¡œ ì‚­ì œ
 	
 
 }

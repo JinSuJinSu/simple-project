@@ -12,14 +12,14 @@ public class ConnectionTest1 {
 		try {
 			// Driver Load
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			//	Connection 积己
-			conn = DriverManager.getConnection(DBConfig1.DBURL,	//	db 立加 url
+			//	Connection 靸濎劚
+			conn = DriverManager.getConnection(DBConfig1.DBURL,	//	db 鞝戩啀 url
 												dbuser,
 												dbpass);
 			System.out.println(conn);
-			System.out.println("楷搬 己傍!");
+			System.out.println("鞐瓣舶 靹标车!");
 		} catch (ClassNotFoundException e) {
-			System.err.println("靛扼捞滚 肺靛 角菩!");
+			System.err.println("霌滊澕鞚措矂 搿滊摐 鞁ろ尐!");
 		} catch (SQLException e) {
 			System.err.println("SQLError!");
 		} finally {

@@ -7,18 +7,18 @@ public class PhoneBookVO {
 	private String tel;
 	
 	
-	// »ı¼ºÀÚ
+	// ìƒì„±ì
 	public PhoneBookVO() {
 		
 	}
 	
-	// ÇÊ¼ö ÇÊµå »ı¼ºÀÚ
+	// í•„ìˆ˜ í•„ë“œ ìƒì„±ì
 	public PhoneBookVO(Long id, String name) {
 		this.id = id;
 		this.name = name;
 	}
 	
-	// ÀüÃ¼ ÇÊµå »ı¼ºÀÚ
+	// ì „ì²´ í•„ë“œ ìƒì„±ì
 	public PhoneBookVO(Long id,String name, String hp, String tel) {
 		this(id, name);
 		this.hp = hp;
@@ -59,4 +59,3 @@ public class PhoneBookVO {
 		return "PhoneBookVO [id=" + id + ", name=" + name + ", hp=" + hp + ",  tel=" + tel +"]";
 	}
 }
-	
